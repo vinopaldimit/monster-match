@@ -5,30 +5,31 @@ import javax.annotation.Resource;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Service;
 
-import io.github.vinopaldimit.monstermatch.models.MonsterProfile;
-import io.github.vinopaldimit.monstermatch.models.MonsterType;
-import io.github.vinopaldimit.monstermatch.repositories.MonsterProfileRepo;
-import io.github.vinopaldimit.monstermatch.repositories.MonsterTypeRepo;
+import io.github.vinopaldimit.monstermatch.models.Profile;
+import io.github.vinopaldimit.monstermatch.models.CreatureType;
+import io.github.vinopaldimit.monstermatch.repositories.ProfileRepo;
+import io.github.vinopaldimit.monstermatch.repositories.CreatureTypeRepo;
 
 @Service
 public class MonsterMatchPopulator implements CommandLineRunner {
-	
+
 	@Resource
-	MonsterProfileRepo monsterProfileRepo;
-	
+	ProfileRepo profileRepo;
+
 	@Resource
-	MonsterTypeRepo monsterTypeRepo;
-	
+	CreatureTypeRepo creatureTypeRepo;
+
 	@Override
 	public void run(String... args) throws Exception {
-		MonsterType typeOne = new MonsterType("Vampire");
-		MonsterType typeTwo = new MonsterType("Werewolf");
+		CreatureType typeOne = new CreatureType("Vampire");
+		CreatureType typeTwo = new CreatureType("Werewolf");
 		
-		MonsterProfile profileOne = new MonsterProfile(203, "Vlad", "bloodyHeck1816", "password", typeOne);
+		//TODO update this
+		Profile profileOne = new Profile("Vlad", "12000", "bloodMan69", "oneAhAhAh", "Unknown", typeOne);
 		
-		monsterTypeRepo.save(typeOne);
-		monsterTypeRepo.save(typeTwo);
-		monsterProfileRepo.save(profileOne);
+		creatureTypeRepo.save(typeOne);
+		creatureTypeRepo.save(typeTwo);
+		profileRepo.save(profileOne);
 	}
-	
+
 }

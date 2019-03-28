@@ -6,10 +6,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import io.github.vinopaldimit.monstermatch.models.MonsterProfile;
-import io.github.vinopaldimit.monstermatch.models.MonsterType;
-import io.github.vinopaldimit.monstermatch.repositories.MonsterProfileRepo;
-import io.github.vinopaldimit.monstermatch.repositories.MonsterTypeRepo;
+import io.github.vinopaldimit.monstermatch.models.Profile;
+import io.github.vinopaldimit.monstermatch.models.CreatureType;
+import io.github.vinopaldimit.monstermatch.repositories.ProfileRepo;
+import io.github.vinopaldimit.monstermatch.repositories.CreatureTypeRepo;
 
 @CrossOrigin
 @RestController
@@ -17,19 +17,19 @@ import io.github.vinopaldimit.monstermatch.repositories.MonsterTypeRepo;
 public class ApiController {
 
 	@Autowired
-	private MonsterProfileRepo monsterProfileRepo;
+	private ProfileRepo profileRepo;
 	
 	@Autowired
-	private MonsterTypeRepo monsterTypeRepo;
+	private CreatureTypeRepo creatureTypeRepo;
 	
-	@GetMapping("/monsterProfiles")
-	public Iterable<MonsterProfile> getMonsterProfiles() {
-		return monsterProfileRepo.findAll();
+	@GetMapping("/profiles")
+	public Iterable<Profile> getProfiles() {
+		return profileRepo.findAll();
 	}
 	
-	@GetMapping("/monsterTypes")
-	public Iterable<MonsterType> getMonsterTypes() {
-		return monsterTypeRepo.findAll();
+	@GetMapping("/creatureTypes")
+	public Iterable<CreatureType> getcreatureTypes() {
+		return creatureTypeRepo.findAll();
 	}
 	
 }

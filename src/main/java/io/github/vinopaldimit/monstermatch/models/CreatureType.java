@@ -11,28 +11,31 @@ import javax.persistence.OneToMany;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
-public class MonsterType {
+public class CreatureType {
 
 	@Id
 	@GeneratedValue
 	private Long id;
 
 	private String officialName;
-	//private Collection<String> aliases;
+	// private Collection<String> aliases;
 
 	@JsonIgnore
 	@OneToMany(mappedBy = "type")
-	private Collection<MonsterProfile> profiles;
+	private Collection<Profile> profiles;
 
 	@JsonIgnore
 	@ManyToMany
-	private Collection<MonsterProfile> seekers;
-	
-	public MonsterType() {}
+	private Collection<Profile> seekers;
 
-	public MonsterType(String officialName) {
+	public CreatureType() {
+	}
+
+	public CreatureType(String officialName) {
 		this.officialName = officialName;
 	}
+
+	// GETTERS
 
 	public Long getId() {
 		return id;
@@ -46,11 +49,11 @@ public class MonsterType {
 //		return aliases;
 //	}
 
-	public Collection<MonsterProfile> getProfiles() {
+	public Collection<Profile> getProfiles() {
 		return profiles;
 	}
 
-	public Collection<MonsterProfile> getSeekers() {
+	public Collection<Profile> getSeekers() {
 		return seekers;
 	}
 }
