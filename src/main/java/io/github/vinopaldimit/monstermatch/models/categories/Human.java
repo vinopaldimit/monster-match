@@ -1,13 +1,8 @@
-package io.github.vinopaldimit.monstermatch.models;
+package io.github.vinopaldimit.monstermatch.models.categories;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import io.github.vinopaldimit.monstermatch.models.Profile;
 
 public class Human extends Profile {
-
-	@Id
-	@GeneratedValue
-	private Long id;
 
 	private boolean wantStayAlive;
 	private boolean wantGetBitten;
@@ -16,19 +11,15 @@ public class Human extends Profile {
 	public Human() {
 	}
 
-	public Human(String name, String age, String userName, String password, String dateOfBirth, CreatureType type,
+	public Human(String name, String age, String userName, String password, String dateOfBirth,
 			boolean wantStayAlive, boolean wantGetBitten, boolean wantGetTurned) {
-		super(name, age, userName, password, dateOfBirth, type);
+		super(name, age, userName, password, dateOfBirth);
 		this.wantStayAlive = wantStayAlive;
 		this.wantGetBitten = wantGetBitten;
 		this.wantGetTurned = wantGetTurned;
 	}
 
 	// GETTERS
-
-	public Long getId() {
-		return id;
-	}
 
 	public boolean isWantStayAlive() {
 		return wantStayAlive;

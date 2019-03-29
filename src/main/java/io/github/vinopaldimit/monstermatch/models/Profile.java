@@ -1,11 +1,7 @@
 package io.github.vinopaldimit.monstermatch.models;
 
-import java.util.Collection;
-
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
-import javax.persistence.ManyToOne;
 
 public class Profile {
 
@@ -19,24 +15,21 @@ public class Profile {
 	private String password;
 	private String dateOfBirth;
 
-	@ManyToMany
-	private Collection<CreatureType> seeking;
+	//TODO seeking
 
-	@ManyToOne
-	private CreatureType type;
+	//TODO specific type
 
 	public Profile() {
 	}
 
 	// TODO figure out what to do about seeking collection
 
-	public Profile(String name, String age, String userName, String password, String dateOfBirth, CreatureType type) {
+	public Profile(String name, String age, String userName, String password, String dateOfBirth) {
 		this.name = name;
 		this.age = age;
 		this.userName = userName;
 		this.password = password;
 		this.dateOfBirth = dateOfBirth;
-		this.type = type;
 	}
 
 	// GETTERS
@@ -65,14 +58,6 @@ public class Profile {
 		return dateOfBirth;
 	}
 
-	public Collection<CreatureType> getSeeking() {
-		return seeking;
-	}
-
-	public CreatureType getType() {
-		return type;
-	}
-
 	// SETTERS
 
 	public void setName(String name) {
@@ -93,14 +78,6 @@ public class Profile {
 
 	public void setDateOfBirth(String dateOfBirth) {
 		this.dateOfBirth = dateOfBirth;
-	}
-
-	public void setSeeking(Collection<CreatureType> seeking) {
-		this.seeking = seeking;
-	}
-
-	public void setType(CreatureType type) {
-		this.type = type;
 	}
 
 }

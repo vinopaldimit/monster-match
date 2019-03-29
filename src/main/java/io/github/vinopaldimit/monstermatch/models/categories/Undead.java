@@ -1,13 +1,8 @@
-package io.github.vinopaldimit.monstermatch.models;
+package io.github.vinopaldimit.monstermatch.models.categories;
 
-import javax.persistence.GeneratedValue;
-import javax.persistence.Id;
+import io.github.vinopaldimit.monstermatch.models.Profile;
 
 abstract class Undead extends Profile {
-
-	@Id
-	@GeneratedValue
-	private Long id;
 
 	private String dateOfDeath;
 	private String causeOfDeath;
@@ -15,18 +10,14 @@ abstract class Undead extends Profile {
 	public Undead() {
 	}
 
-	public Undead(String name, String age, String userName, String password, String dateOfBirth, CreatureType type,
+	public Undead(String name, String age, String userName, String password, String dateOfBirth,
 			String dateOfDeath, String causeOfDeath) {
-		super(name, age, userName, password, dateOfBirth, type);
+		super(name, age, userName, password, dateOfBirth);
 		this.dateOfDeath = dateOfDeath;
 		this.causeOfDeath = causeOfDeath;
 	}
 
 	// GETTERS
-
-	public Long getId() {
-		return id;
-	}
 
 	public String getDateOfDeath() {
 		return dateOfDeath;
